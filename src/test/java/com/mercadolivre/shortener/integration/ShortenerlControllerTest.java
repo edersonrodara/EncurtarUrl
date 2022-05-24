@@ -118,7 +118,21 @@ public class ShortenerlControllerTest {
     }
 
     @Test
-    @DisplayName("Testa se retorna erro de não encontrado")
+    @DisplayName("Testa se retorna erro quando a url não esta cadastrada")
+    public void testaQuandoBuscaUmaUrlNaoCadastrada() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .get("/me.li/AAAAAA2")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers
+                        .jsonPath("$.message").value("Url não cadastrada!"))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].numberVisitants").exists())
+                .andReturn();
+    }
+
+    @Test
+    @DisplayName("Testa se retorna erro ao tentar ver estatistica de uma url que não existe")
     public void testaSeRetornaErroDeNaoEncontrado() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders

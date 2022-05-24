@@ -38,20 +38,22 @@ public class ShortnerTest {
 
         shortenerService.createShortUrl(urlDtoFake.getUrl());
 
-        Mockito.verify(shortenerRepositorie).save(Mockito.any(Url.class));
+        Mockito.verify(shortenerRepositorie, Mockito.times(1)).save(Mockito.any(Url.class));
     }
 
-//    @Test
-//    @DisplayName("Testa se busca corretamente")
-//    public void testaSeBuscaCorretamente() {
-//        List<Url> urlListFake = new ArrayList<>();
-//        Url urlFake = createUrlFake();
-//        urlListFake.add(urlFake);
-//
-//        when(shortenerRepositorie.findByUrlShort(Mockito.anyString())).thenReturn(urlListFake);
-//
-//        Mockito.verify(shortenerRepositorie).findByUrlOriginal(Mockito.any(new ArrayList<>()));
-//    }
+    @Test
+    @DisplayName("Testa se busca corretamente")
+    public void testaSeBuscaCorretamente() {
+        List<Url> urlListFake = new ArrayList<>();
+        Url urlFake = createUrlFake();
+        urlListFake.add(urlFake);
+
+        when(shortenerRepositorie.findByUrlShort(anyString())).thenReturn(urlListFake);
+
+        shortenerService.getUrl(Mockito.anyString());
+
+        Mockito.verify(shortenerRepositorie, Mockito.times(1)).findByUrlShort("");
+    }
 
     private UrlDTO createUrlDtoFake() {
         UrlDTO urlDTO = new UrlDTO();

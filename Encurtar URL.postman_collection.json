@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "044795ad-0e70-4d04-ab6d-5d8d81a69b7c",
+		"name": "Encurtar URL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://www.plazahoteis.com.br/wp-content/uploads/2019/07/gatinho-filhote-plaza-hoteis-jul19.jpgh4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/me.li/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"me.li",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/me.li/AAAAAA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"me.li",
+						"AAAAAA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET URL statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/me.li/AAAAAA/statistics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"me.li",
+						"AAAAAA",
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all URL statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/me.li/statistics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"me.li",
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

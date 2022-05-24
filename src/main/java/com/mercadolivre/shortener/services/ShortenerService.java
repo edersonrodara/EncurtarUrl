@@ -63,7 +63,7 @@ public class ShortenerService {
     public String getUrl(String url) {
         List<Url> byUrlShort = shortenerRepositorie.findByUrlShort(url);
         if (byUrlShort.isEmpty()) {
-            return "Url nao cadastrada";
+            throw new NotFoundException("Url não cadastrada!");
         }
 
         byUrlShort.get(0).setUpdateDate(LocalDate.now());
